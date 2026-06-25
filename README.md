@@ -14,8 +14,8 @@ https://d6wn6bmjj722w.population.io/1.0/population/World/YYYY-MM-DD/
 
 ## Setup
 
-1. Create a GitHub personal access token that can update your user status.
-   A classic token with the `user` scope is the simplest option.
+1. Create a GitHub personal access token dedicated to this workflow.
+   A classic token with only the `user` scope is the simplest option.
 
 2. Add the token to this repository:
 
@@ -50,10 +50,11 @@ after 60 days with no repository activity. There is no repository setting that
 turns that off.
 
 This repo includes an optional `Keep scheduled workflows active` workflow. It
-uses `GH_STATUS_TOKEN` to commit a timestamp to `.github/keepalive.txt` once a
-month, which keeps the repository visibly active. If you do not want automatic
-commits, delete `.github/workflows/keepalive.yml` and manually touch the repo
-every couple of months instead.
+uses the repository `GITHUB_TOKEN` to commit a timestamp to
+`.github/keepalive.txt` once a month, which keeps the repository visibly active.
+If you do not want automatic commits, delete
+`.github/workflows/keepalive.yml` and manually touch the repo every couple of
+months instead.
 
 For private repositories this specific public-repo inactivity rule is less of a
 concern, but scheduled workflows can still be delayed and are not guaranteed to
