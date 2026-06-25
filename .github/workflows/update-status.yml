@@ -1,0 +1,29 @@
+name: Update GitHub status
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Avoid the top of the hour because GitHub Actions can be delayed or dropped
+    # during high-load periods.
+    - cron: "17 2 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  update-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Update GitHub status
+        env:
+          GH_STATUS_TOKEN: ${{ secrets.GH_STATUS_TOKEN }}
+          STATUS_EMOJI: ":sunflower:"
+        run: python scripts/update_status.py
