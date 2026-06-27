@@ -31,6 +31,9 @@ https://d6wn6bmjj722w.population.io/1.0/population/World/YYYY-MM-DD/
 
 The workflow also runs daily at `02:17 UTC`.
 
+Each workflow run writes a summary showing the previous status, the new status,
+whether anything changed, the population date, and the source URL.
+
 ## Local Dry Run
 
 ```bash
