@@ -25,5 +25,5 @@ jobs:
       - name: Update GitHub status
         env:
           GH_STATUS_TOKEN: ${{ secrets.GH_STATUS_TOKEN }}
-          STATUS_EMOJI: ":sunflower:"
+          STATUS_EMOJI: ":blossom:"
         run: python scripts/update_status.py

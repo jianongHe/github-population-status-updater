@@ -197,7 +197,7 @@ def main() -> int:
         return 2
 
     status_date = parse_date(os.environ.get("STATUS_DATE"))
-    emoji = os.environ.get("STATUS_EMOJI", ":sunflower:")
+    emoji = os.environ.get("STATUS_EMOJI", ":blossom:")
     dry_run = os.environ.get("DRY_RUN", "").lower() in {"1", "true", "yes"}
 
     population = get_population(status_date)
